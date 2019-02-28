@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Registro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="jovenesFormGroup">
+    <ion-item>
+      <ion-input type="text" placeholder="Nombre" formControlName="nombre"></ion-input>
+      <span *ngIf="jovenesFormGroup.get('nombre').touched && jovenesFormGroup.get('nombre').hasError('required')">Required</span>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number" placeholder="Edad" formControlName="edad"></ion-input>
+      <span *ngIf="jovenesFormGroup.get('edad').touched && jovenesFormGroup.get('edad').hasError('required')">Required</span>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label>Sexo</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="sexo">
+          <ion-select-option name="Femenino" value="Femenino">Femenino</ion-select-option>
+          <ion-select-option name="Masculino" value="Masculino">Masculino</ion-select-option>
+        </ion-select>
+        <span *ngIf="jovenesFormGroup.get('sexo').touched && jovenesFormGroup.get('sexo').hasError('required')">Required</span>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>Ocupación</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="ocupacion">
+          <ion-select-option name="Estudiante" value="Estudiante">Estudiante</ion-select-option>
+          <ion-select-option name="Trabajador" value="Trabajador">Trabajador</ion-select-option>
+          <ion-select-option name="Nini" value="Nini">Nini</ion-select-option>
+          <ion-select-option name="Freelancer" value="Freelancer">Freelancer</ion-select-option>
+          <ion-select-option name="Encargado" value="Encargado del hogar">Encargado del hogar</ion-select-option>
+        </ion-select>
+        <span *ngIf="jovenesFormGroup.get('ocupacion').touched && jovenesFormGroup.get('ocupacion').hasError('required')">Required</span>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>Ciudad</ion-label>
+        <ion-select placeholder="Selecciona uno" formControlName="ciudad">
+          <ion-select-option name="Tuxtla" value="Tuxtla Gutierrez">Tuxtla Gutierrez</ion-select-option>
+          <ion-select-option name="SanCris" value="San Cristobal de las Casas">San Cristobal de las Casas</ion-select-option>
+          <ion-select-option name="Arriaga" value="Arriaga">Arriaga</ion-select-option>
+          <ion-select-option name="Tapachula" value="Tapachula">Tapachula</ion-select-option>
+          <ion-select-option name="Tonala" value="Tonala">Tonala</ion-select-option>
+        </ion-select>
+        <span *ngIf="jovenesFormGroup.get('ciudad').touched && jovenesFormGroup.get('ciudad').hasError('required')">Required</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-button type="button" (click)="guardarDatos()" [disabled]="jovenesFormGroup.invalid">Guardar</ion-button>
+  </form>
+</ion-content>
